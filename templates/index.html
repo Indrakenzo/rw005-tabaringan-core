@@ -2,155 +2,125 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Sistem RW 05 Tabaringan</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SI-WARGA RW 05 TABARINGAN</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root { --primary: #0f172a; --accent: #3b82f6; --bg: #f1f5f9; }
-        body { background: var(--bg); font-family: 'Inter', sans-serif; color: #334155; }
-        
-        .app-frame { max-width: 600px; margin: 0 auto; background: white; min-height: 100vh; position: relative; box-shadow: 0 0 15px rgba(0,0,0,0.05); }
-        
-        /* Compact Header */
-        .header { background: var(--primary); color: white; padding: 20px; border-bottom: 4px solid var(--accent); }
-        .header h1 { font-size: 1.25rem; font-weight: 700; margin: 0; }
-        .header small { color: #94a3b8; font-size: 0.8rem; }
-
-        /* News Ticker Section */
-        .news-section { padding: 15px 20px; background: #fff; border-bottom: 1px solid #e2e8f0; }
-        .news-title { font-size: 0.85rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px; color: var(--accent); margin-bottom: 10px; }
-        .news-item { display: flex; align-items: start; margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px dashed #f1f5f9; text-decoration: none; color: inherit; }
-        .news-item:last-child { border: none; margin: 0; }
-        .news-item img { width: 60px; height: 60px; object-fit: cover; border-radius: 8px; margin-right: 12px; background: #eee; }
-        .news-content h6 { font-size: 0.9rem; font-weight: 600; margin: 0 0 4px 0; line-height: 1.2; }
-        .news-content span { font-size: 0.7rem; color: #64748b; }
-
-        /* Grid Menu */
-        .menu-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; padding: 20px; }
-        .menu-card { background: white; border: 1px solid #e2e8f0; border-radius: 12px; padding: 15px; text-align: center; text-decoration: none; color: var(--primary); transition: 0.2s; }
-        .menu-card:active { background: #f8fafc; transform: scale(0.98); }
-        .menu-card i { font-size: 1.5rem; margin-bottom: 8px; display: block; }
-        .menu-card.red { color: #ef4444; border-color: #fca5a5; background: #fef2f2; }
-        
-        /* Form Section */
-        .form-overlay { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); z-index: 99; }
-        .form-container { position: absolute; bottom: 0; left: 0; right: 0; background: white; border-radius: 20px 20px 0 0; padding: 25px; max-height: 85vh; overflow-y: auto; animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1); max-width: 600px; margin: 0 auto; }
-        
-        @keyframes slideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
+        :root { --main-blue: #003366; --accent-gold: #FFD700; }
+        body { background: #f0f2f5; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        .app-card { max-width: 500px; margin: 0 auto; background: white; min-height: 100vh; box-shadow: 0 0 20px rgba(0,0,0,0.1); }
+        .header { background: var(--main-blue); color: white; padding: 30px 20px; border-radius: 0 0 30px 30px; }
+        .nav-tab { display: flex; justify-content: space-around; background: white; padding: 15px 0; border-bottom: 1px solid #eee; position: sticky; top: 0; z-index: 100; }
+        .nav-item { text-align: center; color: #666; cursor: pointer; font-size: 0.8rem; flex: 1; }
+        .nav-item.active { color: var(--main-blue); font-weight: bold; border-bottom: 3px solid var(--main-blue); }
+        .section { padding: 20px; display: none; }
+        .section.active { display: block; }
+        .info-card { border-left: 5px solid var(--main-blue); background: #f8f9fa; padding: 15px; margin-bottom: 15px; border-radius: 5px; }
+        .emergency-btn { background: #dc3545; color: white; width: 100%; padding: 15px; border-radius: 10px; text-decoration: none; display: block; text-align: center; font-weight: bold; }
     </style>
 </head>
 <body>
 
-<div class="app-frame">
-    <div class="header d-flex justify-content-between align-items-center">
-        <div>
-            <h1>CORE RW 05</h1>
-            <small>Tabaringan Intelligence System</small>
-        </div>
-        <div class="text-end">
-            <i class="fas fa-wifi text-success"></i>
-        </div>
+<div class="app-card">
+    <div class="header text-center">
+        <h4 class="mb-0">SI-WARGA RW 05</h4>
+        <p class="small mb-0">Kel. Tabaringan, Kec. Ujung Tanah</p>
+        <hr class="my-2" style="border-color: rgba(255,255,255,0.2)">
+        <small>Dev: Indrayaza Z. (Junior Web Programmer & CLSOCA)</small>
     </div>
 
-    <div class="news-section">
-        <div class="news-title"><i class="fas fa-newspaper"></i> Update Makassar</div>
+    <div class="nav-tab">
+        <div class="nav-item active" onclick="showSection('edu')"><i class="fas fa-graduation-cap d-block fa-lg mb-1"></i>Beasiswa</div>
+        <div class="nav-item" onclick="showSection('health')"><i class="fas fa-heartbeat d-block fa-lg mb-1"></i>Kesehatan</div>
+        <div class="nav-item" onclick="showSection('letter')"><i class="fas fa-file-alt d-block fa-lg mb-1"></i>Surat</div>
+        <div class="nav-item" onclick="showSection('sos')"><i class="fas fa-phone-alt d-block fa-lg mb-1"></i>Darurat</div>
+    </div>
+
+    <div id="edu" class="section active">
+        <h6 class="fw-bold mb-3"><i class="fas fa-university me-2"></i>Pusat Informasi Beasiswa</h6>
         
-        {% if berita %}
-            {% for item in berita %}
-            <a href="{{ item.url }}" target="_blank" class="news-item">
-                {% if item.urlToImage %}
-                <img src="{{ item.urlToImage }}" alt="img">
-                {% else %}
-                <div style="width:60px; height:60px; background:#e2e8f0; border-radius:8px; margin-right:12px; display:flex; align-items:center; justify-content:center;"><i class="fas fa-image text-muted"></i></div>
-                {% endif %}
-                <div class="news-content">
-                    <h6>{{ item.title }}</h6>
-                    <span>{{ item.source.name }} &bull; {{ item.publishedAt[:10] }}</span>
-                </div>
-            </a>
-            {% endfor %}
-        {% else %}
-            <div class="text-center py-3 small text-muted">
-                <i class="fas fa-satellite-dish mb-2"></i><br>
-                Feed Berita Offline (Cek API Key)
-            </div>
-        {% endif %}
-    </div>
-
-    <div class="menu-grid">
-        <a href="tel:112" class="menu-card red">
-            <i class="fas fa-ambulance"></i>
-            <strong>Emergency 112</strong>
-        </a>
-        <div onclick="toggleForm()" class="menu-card" style="cursor: pointer;">
-            <i class="fas fa-file-signature text-primary"></i>
-            <strong>Buat Surat</strong>
+        <div class="info-card">
+            <strong>1. PIP (Pemerintah Pusat)</strong><br>
+            <small>Siswa SD/SMP/SMA pemegang KIP.</small><br>
+            <a href="https://pip.kemendikdasmen.go.id/home_v1" class="btn btn-sm btn-outline-primary mt-2">Cek Status PIP</a>
         </div>
-        <a href="https://pip.kemdikbud.go.id" target="_blank" class="menu-card">
-            <i class="fas fa-graduation-cap text-warning"></i>
-            <strong>Info PIP</strong>
-        </a>
-        <a href="https://cekbansos.kemensos.go.id" target="_blank" class="menu-card">
-            <i class="fas fa-hand-holding-heart text-success"></i>
-            <strong>Cek Bansos</strong>
-        </a>
-    </div>
 
-    <div class="text-center py-4 text-muted small">
-        System Ver 3.0 | Logged IP: {{ request.remote_addr }}
-    </div>
-</div>
-
-<div id="overlay" class="form-overlay">
-    <div class="form-container">
-        <div class="d-flex justify-content-between mb-4">
-            <h5 class="fw-bold m-0">Formulir Warga</h5>
-            <i class="fas fa-times" style="cursor: pointer; font-size: 1.2rem;" onclick="toggleForm()"></i>
+        <div class="info-card">
+            <strong>2. Beasiswa Kalla (Yayasan Kalla)</strong><br>
+            <small>Khusus Mahasiswa S1 asal Sulawesi Selatan.</small><br>
+            <a href="https://yayasanhadjikalla.or.id" class="btn btn-sm btn-outline-primary mt-2">Daftar Beasiswa Kalla</a>
         </div>
-        
+
+        <div class="info-card">
+            <strong>3. KIP Kuliah (Kementerian)</strong><br>
+            <small>Bantuan biaya kuliah dan uang saku bulanan.</small><br>
+            <a href="https://kip-kuliah.kemdikbud.go.id" class="btn btn-sm btn-outline-primary mt-2">Portal KIP-K</a>
+        </div>
+
+        <div class="info-card">
+            <strong>4. Beasiswa Baznas Makassar</strong><br>
+            <small>Bantuan pendidikan untuk warga kurang mampu (Asnaf).</small><br>
+            <a href="https://baznasmakassar.id" class="btn btn-sm btn-outline-primary mt-2">Cek Info Baznas</a>
+        </div>
+    </div>
+
+    <div id="health" class="section">
+        <h6 class="fw-bold mb-3"><i class="fas fa-stethoscope me-2"></i>Layanan Kesehatan Gratis</h6>
+        <div class="info-card">
+            <strong>BPJS PBI (UHC Makassar)</strong><br>
+            <small>Warga Makassar bisa berobat gratis hanya dengan KTP jika darurat.</small>
+        </div>
+        <div class="info-card">
+            <strong>Puskesmas Tabaringan</strong><br>
+            <small>Alamat: Jl. Tabaringan No. 1</small>
+        </div>
+        <div class="info-card">
+            <strong>Home Care Dottoro'ta</strong><br>
+            <small>Layanan dokter datang ke rumah 24 Jam.</small>
+        </div>
+    </div>
+
+    <div id="letter" class="section">
+        <h6 class="fw-bold mb-3">Cetak Surat Pengantar Mandiri</h6>
         <form action="/cetak" method="POST">
-            <div class="mb-3">
-                <label class="form-label small fw-bold">Pilih RT</label>
-                <select name="rt_code" class="form-select" required>
-                    <option value="" disabled selected>-- Pilih Ketua RT --</option>
-                    {% for code, data in rt_list.items() if code != 'RW005' %}
-                    <option value="{{ code }}">RT {{ code[-1] }} - {{ data.nama }}</option>
-                    {% endfor %}
-                </select>
+            <select name="rt_code" class="form-select mb-2" required>
+                <option value="" disabled selected>-- Pilih RT --</option>
+                {% for code, data in rt_list.items() if code != 'RW005' %}
+                <option value="{{ code }}">RT {{ code[-1] }} - {{ data.nama }}</option>
+                {% endfor %}
+            </select>
+            <select name="jenis_surat" class="form-select mb-2" required>
+                <option value="Surat Pengantar KTP">Pengantar KTP/KK</option>
+                <option value="Surat Keterangan Tidak Mampu">Ket. Tidak Mampu</option>
+                <option value="Surat Keterangan Usaha">Ket. Usaha</option>
+            </select>
+            <input type="number" name="nik" class="form-control mb-2" placeholder="NIK (16 Digit)" required>
+            <input type="text" name="nama" class="form-control mb-2" placeholder="Nama Lengkap" required>
+            <div class="row g-2 mb-2">
+                <div class="col-6"><input type="text" name="tmp_lahir" class="form-control" placeholder="Tempat Lahir"></div>
+                <div class="col-6"><input type="date" name="tgl_lahir" class="form-control"></div>
             </div>
-            <div class="mb-3">
-                <label class="form-label small fw-bold">Keperluan</label>
-                <select name="jenis_surat" class="form-select" required>
-                    <option value="Surat Pengantar KTP">Pengantar KTP/KK</option>
-                    <option value="Surat Keterangan Tidak Mampu">Ket. Tidak Mampu</option>
-                    <option value="Surat Keterangan Usaha">Ket. Usaha</option>
-                    <option value="Surat Keterangan Domisili">Ket. Domisili</option>
-                </select>
-            </div>
-            <div class="row g-2 mb-3">
-                <div class="col-6"><input type="number" name="nik" class="form-control" placeholder="NIK" required></div>
-                <div class="col-6"><input type="number" name="kk" class="form-control" placeholder="No. KK" required></div>
-            </div>
-            <div class="mb-3"><input type="text" name="nama" class="form-control" placeholder="Nama Lengkap" style="text-transform:uppercase" required></div>
-            <div class="row g-2 mb-3">
-                <div class="col-6"><input type="text" name="tmp_lahir" class="form-control" placeholder="Tmp Lahir" required></div>
-                <div class="col-6"><input type="date" name="tgl_lahir" class="form-control" required></div>
-            </div>
-            <div class="mb-3"><input type="text" name="pekerjaan" class="form-control" placeholder="Pekerjaan" required></div>
-            <div class="mb-3"><textarea name="alamat" class="form-control" rows="2" placeholder="Alamat Lengkap" required></textarea></div>
-            
-            <button type="submit" class="btn btn-primary w-100 fw-bold py-3 rounded-pill">CETAK PDF</button>
+            <textarea name="alamat" class="form-control mb-3" placeholder="Alamat Lengkap di Tabaringan" required></textarea>
+            <button type="submit" class="btn btn-primary w-100">PROSES PDF</button>
         </form>
+    </div>
+
+    <div id="sos" class="section text-center">
+        <h6 class="fw-bold mb-4">NOMOR DARURAT RW 05</h6>
+        <a href="tel:112" class="emergency-btn mb-3"><i class="fas fa-ambulance me-2"></i>CALL CENTER 112</a>
+        <a href="tel:0411xxxxxx" class="btn btn-outline-dark w-100 mb-2">POLSEK UJUNG TANAH</a>
+        <a href="https://wa.me/628xxxxxxxx" class="btn btn-success w-100">WHATSAPP KETUA RW 05</a>
     </div>
 </div>
 
 <script>
-    function toggleForm() {
-        const el = document.getElementById('overlay');
-        el.style.display = (el.style.display === 'block') ? 'none' : 'block';
+    function showSection(id) {
+        document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+        document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+        document.getElementById(id).classList.add('active');
+        event.currentTarget.classList.add('active');
     }
 </script>
-
 </body>
 </html>
